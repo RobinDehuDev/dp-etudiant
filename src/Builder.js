@@ -30,7 +30,7 @@ Contact = (function (self) {
         this.createContactWithProfessionalMobile = function(gender, firstname, lastname,mobile){
             var temp = new Contact.Contact(gender,firstname,lastname);
             var temp_mobile = new Contact.Phone(mobile,Contact.PhoneCategory.PRO, Contact.PhoneType.MOBILE);
-            temp.add_phone(temp_mobile);
+            temp.addPhone(temp_mobile);
             return temp;
 
         };
