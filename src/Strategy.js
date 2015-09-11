@@ -52,30 +52,62 @@ Contact = (function (self) {
     };
 
     self.FromPhoneSearchStrategy = function (phone) {
-         var contact = null;
-        this.search = function(){
-            return contact;
-        };
 
-        var init = function(){
+        var _phone = phone;
+        this.search = function(){
             var tab = Contact.Contacts.instance().t;
             var i = 0, j = 0;
             var temp, phones;
 
+            var contact = null;
+
             for (i; i < tab.length; i++) {
                 temp = tab[i];
                 phones = temp.phones();
-                for (j; j < phones.length; j++) {
-                    if (phones[j].number() === phone) {
+                for (j = 0; j < phones.length; j++) {
+                    if (phones[j].number() === _phone) {
 
                         contact = temp;
                     }
                 }
 
             }
+            return contact;
         };
 
-        init();
+        this.search2 = function(contacts){
+            var tab = contacts.instance();
+            var i = 0, j = 0;
+            var temp, phones;
+
+            var contact = null;
+
+
+
+
+            for (i; i < tab.length; i++) {
+
+                temp = tab[i];
+                phones = temp.phones();
+
+                for (j = 0; j < phones.length; j++) {
+
+
+                    if (phones[j].number() === _phone) {
+
+                        contact = temp;
+                    }
+                }
+
+            }
+            return contact;
+        }
+
+        var init = function(phone){
+           _phone = phone;
+        };
+
+        init(phone);
 
 
     };
