@@ -34,36 +34,45 @@ Contact = (function (self) {
                 if (r.id() === id)
                     bool = false;
             }
+            if(bool)
+                r=null;
 
             return r;
         },
 
-        getFromName : function(firstname, lastname) {
+        getFromName: function (firstname, lastname) {
             var tab = [];
+            var cpt = 0;
             var x;
             var i;
-            for(i = 0; i < temp.s ; i++){
+            for (i = 0; i < temp.s; i++) {
                 x = temp.t[i];
-                if(x.lastName() == lastname && x.firstName() == firstname )
-                {
+                if (x.lastName() == lastname && x.firstName() == firstname) {
+                    cpt++;
                     tab.push(x);
                 }
             }
 
+            if(cpt===0)
+                tab = null;
             return tab;
         },
 
-        remove : function(id){
+        remove: function (id) {
             var tab = [];
             var i;
             var x;
-            for(i = 0; i < temp.s ; i++){
+            var cpt = 0;
+            for (i = 0; i < temp.s; i++) {
                 x = temp.t[i];
-                if(x.id() != id)
+                if (x.id() != id) {
                     tab.push(x);
+                    cpt++;
+                }
             }
 
-            temp.t=tab;
+            temp.t = tab;
+            temp.s = cpt;
         }
 
     };
