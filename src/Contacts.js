@@ -73,6 +73,10 @@ Contact = (function (self) {
 
             temp.t = tab;
             temp.s = cpt;
+        },
+
+        search : function (strategy) {
+           return strategy.search();
         }
 
     };
