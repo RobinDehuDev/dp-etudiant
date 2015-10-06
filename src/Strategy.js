@@ -9,11 +9,11 @@ Contact = (function (self) {
 
     self.FromNameSearchStrategy = function (firstname, lastname) {
         var contact;
-        this.search = function(){
+        this.search = function () {
             return contact;
         };
 
-        var init = function(){
+        var init = function () {
             contact = Contact.Contacts.instance().getFromName(firstname, lastname)[0];
         };
 
@@ -22,11 +22,11 @@ Contact = (function (self) {
 
     self.FromMailSearchStrategy = function (mail) {
         var contact = null;
-        this.search = function(){
+        this.search = function () {
             return contact;
         };
 
-        var init = function(){
+        var init = function () {
             var tab = Contact.Contacts.instance().t;
             var i = 0, j = 0;
             var temp, mails;
@@ -47,14 +47,12 @@ Contact = (function (self) {
         init();
 
 
-
-
     };
 
     self.FromPhoneSearchStrategy = function (phone) {
 
         var _phone = phone;
-        this.search = function(){
+        this.search = function () {
             var tab = Contact.Contacts.instance().t;
             var i = 0, j = 0;
             var temp, phones;
@@ -75,14 +73,12 @@ Contact = (function (self) {
             return contact;
         };
 
-        this.search2 = function(contacts){
+        this.search2 = function (contacts) {
             var tab = contacts.instance();
             var i = 0, j = 0;
             var temp, phones;
 
             var contact = null;
-
-
 
 
             for (i; i < tab.length; i++) {
@@ -101,13 +97,48 @@ Contact = (function (self) {
 
             }
             return contact;
-        }
+        };
 
-        var init = function(phone){
-           _phone = phone;
+        var init = function (phone) {
+            _phone = phone;
         };
 
         init(phone);
+
+
+    };
+
+    self.ChangePhoneStrategy = function (prenom, nom, tel1, tel2) {
+
+        var _prenom, _nom, _tel1, _tel2;
+
+        this.change = function (contacts) {
+            var i = 0, temp, phones, j, tab = contacts.instance();
+            for (i; i < tab.length; i++) {
+
+                temp = tab[i];
+                phones = temp.phones();
+
+                for (j = 0; j < phones.length; j++) {
+
+
+                    if (phones[j].number() === _tel1) {
+
+                        phones[j].changeNumber(tel2);
+                    }
+                }
+
+            }
+        };
+
+        var init = function (prenom, nom, tel1, tel2) {
+            _prenom = prenom;
+            _nom = nom;
+            _tel1 = tel1;
+            _tel2 = tel2;
+        };
+
+        init(prenom, nom, tel1, tel2);
 
 
     };

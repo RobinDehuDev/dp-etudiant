@@ -8,7 +8,7 @@ Contact = (function (self) {
 
 
     self.PhoneType = {MOBILE: 1};
-    self.PhoneCategory = {PERSO : 1, PRO : 2};
+    self.PhoneCategory = {PERSO: 1, PRO: 2};
 
     self.Phone = function (numero, category, type) {
         var _numero;
@@ -33,9 +33,12 @@ Contact = (function (self) {
             _category = category;
         };
 
-        init(numero, category,type);
-    };
+        this.changeNumber = function (num) {
+            _numero = num;
+        };
 
+        init(numero, category, type);
+    };
 
 
     return self;

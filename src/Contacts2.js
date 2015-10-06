@@ -7,17 +7,27 @@ Contact = (function (self) {
     'use strict';
 
 
-
-
-    self.Contacts2 = function() {
+    self.Contacts2 = function () {
         var t = [];
         this.instance = function () {
             return t;
         };
 
         this.add = function (contact) {
-           t.push(contact);
+            t.push(contact);
 
+        };
+
+        this.change = function (changestrat) {
+            changestrat.change(this);
+        };
+
+        this.isempty = function () {
+            return t.length === 0;
+        };
+
+        this.size = function () {
+            return t.length;
         };
 
 

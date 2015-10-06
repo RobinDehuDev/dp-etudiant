@@ -8,7 +8,15 @@ Contact = (function (self) {
 
         self.Gender = {Mr: 1};
         self.Contact = function (gender, firstname, lastname) {
-            var firstName, lastName, g, id, mails = [], phones = [];
+            var firstName, lastName, g, id, mails = [], phones = [], tag;
+
+            this.tag = function() {
+                return tag;
+            };
+
+            this.setTag = function(t){
+                tag = t;
+            };
 
 
             this.gender = function () {
@@ -41,7 +49,23 @@ Contact = (function (self) {
 
             this.id = function () {
                 return id;
+            };
+
+            this.setId = function(ID){
+                id = ID;
             }
+
+            this.toObject = function () {
+              return {
+                  Firstname : firstname,
+                  Lastname : lastname,
+                  Gender : g,
+                  ID : id,
+                  Mails : mails,
+                  Phones : phones,
+                  Tag : tag
+              };
+            };
 
             var init = function (gender, firstname, lastname) {
                 lastName = lastname;

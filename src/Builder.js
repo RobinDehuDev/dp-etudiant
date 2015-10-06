@@ -35,6 +35,20 @@ Contact = (function (self) {
 
         };
 
+        this.createContactWithTag = function(gender, firstname, lastname,tag){
+            var temp = new Contact.Contact(gender,firstname,lastname);
+            temp.setTag(tag);
+            return temp;
+
+        };
+
+        this.createContactFromJSON = function(json){
+            var temp = new Contact.Contact(json.Gender, json.Firstname, json.Lastname);
+            temp.setTag(json.Tag);
+            temp.setId(json.ID);
+            return temp;
+        };
+
 
     };
 

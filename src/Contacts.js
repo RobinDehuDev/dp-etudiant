@@ -77,6 +77,10 @@ Contact = (function (self) {
 
         search : function (strategy) {
            return strategy.search();
+        },
+
+        iterator : function(){
+            return new Contact.Iterator(temp.t);
         }
 
     };
