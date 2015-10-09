@@ -28,6 +28,11 @@ Contact = (function (self) {
             i = 0;
         };
 
+        this.first = function(){
+            i = 0;
+            return _contact_list[i];
+        };
+
         init(cont_list);
     };
 

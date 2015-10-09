@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <script language="JavaScript">
+        $(document).ready(function (){
+                //Truc qui se passe
+
+                var line = $('<tr />');
+                $('<th />', { html : 'First Name' }).appendTo(line);
+                $('<th />', { html : 'Last Name' }).appendTo(line);
+                $('<th />', { html : 'Phones' }).appendTo(line);
+                $('<th />', { html : 'Mails' }).appendTo(line);
+                $('<th />', { html : 'Tags' }).appendTo(line);
+                $('<th />', { html : 'Actions' }).appendTo(line);
+                line.appendTo($('#matable'));
+            };
+        )
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>
